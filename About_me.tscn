@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://lb0n4tisnvms"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_d54b7"]
+[ext_resource type="LabelSettings" uid="uid://btdrr01st80vu" path="res://new_label_settings.tres" id="2_kn5lt"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="3_wthk2"]
+
+[node name="About_me" type="Node2D"]
+script = ExtResource("1_d54b7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 82.0
+offset_top = 14.0
+offset_right = 380.0
+offset_bottom = 136.0
+text = "About me!"
+label_settings = ExtResource("2_kn5lt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 13.0
+offset_top = 158.0
+offset_right = 137.0
+offset_bottom = 226.0
+theme = ExtResource("3_wthk2")
+text = "Show"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 178.0
+offset_top = 160.0
+offset_right = 302.0
+offset_bottom = 228.0
+theme = ExtResource("3_wthk2")
+text = "Clear"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 338.0
+offset_top = 159.0
+offset_right = 462.0
+offset_bottom = 227.0
+theme = ExtResource("3_wthk2")
+text = "Exit"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

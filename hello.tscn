@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://b62g7etx0e5dp"]
+
+[ext_resource type="Script" path="res://hello.gd" id="1_lx18q"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_4cqqn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yb4rx"]
+font_size = 75
+
+[sub_resource type="Theme" id="Theme_kapv3"]
+default_font_size = 20
+
+[node name="Hello" type="Node2D"]
+position = Vector2(18, 21)
+script = ExtResource("1_lx18q")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -137.0
+offset_top = 26.0
+offset_right = 674.0
+offset_bottom = 203.0
+text = "Hello, World!"
+label_settings = SubResource("LabelSettings_yb4rx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 272.0
+offset_right = 210.0
+offset_bottom = 344.0
+theme = ExtResource("2_4cqqn")
+text = "Show"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 301.0
+offset_top = 271.0
+offset_right = 516.0
+offset_bottom = 348.0
+theme = SubResource("Theme_kapv3")
+text = "Clear"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 30.0
+offset_top = -5.0
+offset_right = 517.0
+offset_bottom = 57.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

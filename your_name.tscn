@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvheyxslqjqgh"]
+
+[ext_resource type="Script" path="res://your_name.gd" id="1_65ot1"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_fjr4a"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s8jn7"]
+font_size = 48
+
+[node name="YourName" type="Node2D"]
+script = ExtResource("1_65ot1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 58.0
+offset_top = 28.0
+offset_right = 518.0
+offset_bottom = 137.0
+text = "Your Name!"
+label_settings = SubResource("LabelSettings_s8jn7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btnshow" type="Button" parent="."]
+offset_left = 25.0
+offset_top = 200.0
+offset_right = 204.0
+offset_bottom = 278.0
+theme = ExtResource("2_fjr4a")
+text = "Show"
+
+[node name="btnclear" type="Button" parent="."]
+offset_left = 254.0
+offset_top = 203.0
+offset_right = 424.0
+offset_bottom = 281.0
+theme = ExtResource("2_fjr4a")
+text = "Clear"
+
+[node name="btnexit" type="Button" parent="."]
+offset_left = 468.0
+offset_top = 200.0
+offset_right = 616.0
+offset_bottom = 278.0
+text = "Exit"
+
+[connection signal="pressed" from="btnshow" to="." method="_on_btnshow_pressed"]
+[connection signal="pressed" from="btnclear" to="." method="_on_btnclear_pressed"]
+[connection signal="pressed" from="btnexit" to="." method="_on_btnexit_pressed"]
