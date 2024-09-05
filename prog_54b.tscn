@@ -1,0 +1,77 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1s7ki3h1fgwc"]
+
+[ext_resource type="Script" path="res://prog_54b.gd" id="1_xii1v"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_mx7ie"]
+
+[node name="prog54b" type="Node2D"]
+script = ExtResource("1_xii1v")
+
+[node name="sumlbl" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 174.0
+offset_right = 566.0
+offset_bottom = 215.0
+text = "Sum:"
+
+[node name="avelbl" type="Label" parent="."]
+offset_left = 61.0
+offset_top = 214.0
+offset_right = 395.0
+offset_bottom = 245.0
+text = "Average:"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 57.0
+offset_top = 13.0
+offset_right = 284.0
+offset_bottom = 72.0
+text = "Num1:"
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 310.0
+offset_top = 12.0
+offset_right = 537.0
+offset_bottom = 71.0
+text = "Num2:"
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+offset_left = 60.0
+offset_top = 98.0
+offset_right = 287.0
+offset_bottom = 157.0
+text = "Num3:"
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+offset_left = 312.0
+offset_top = 97.0
+offset_right = 539.0
+offset_bottom = 156.0
+text = "Num4:"
+
+[node name="Calcbtn" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 248.0
+offset_right = 179.0
+offset_bottom = 329.0
+theme = ExtResource("2_mx7ie")
+text = "Calculate"
+
+[node name="clearbtn" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 250.0
+offset_right = 368.0
+offset_bottom = 331.0
+theme = ExtResource("2_mx7ie")
+text = "Clear"
+
+[node name="exitbtn" type="Button" parent="."]
+offset_left = 407.0
+offset_top = 249.0
+offset_right = 559.0
+offset_bottom = 330.0
+theme = ExtResource("2_mx7ie")
+text = "Exit"
+
+[connection signal="pressed" from="Calcbtn" to="." method="_on_calcbtn_pressed"]
+[connection signal="pressed" from="clearbtn" to="." method="_on_clearbtn_pressed"]
+[connection signal="pressed" from="exitbtn" to="." method="_on_exitbtn_pressed"]
