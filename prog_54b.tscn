@@ -13,6 +13,34 @@ offset_right = 566.0
 offset_bottom = 215.0
 text = "Sum:"
 
+[node name="sumlbl2" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 25.0
+offset_right = 566.0
+offset_bottom = 66.0
+text = "Num1:"
+
+[node name="sumlbl3" type="Label" parent="."]
+offset_left = 335.0
+offset_top = 26.0
+offset_right = 841.0
+offset_bottom = 67.0
+text = "Num2:"
+
+[node name="sumlbl4" type="Label" parent="."]
+offset_left = 52.0
+offset_top = 105.0
+offset_right = 558.0
+offset_bottom = 146.0
+text = "Num3:"
+
+[node name="sumlbl5" type="Label" parent="."]
+offset_left = 331.0
+offset_top = 109.0
+offset_right = 837.0
+offset_bottom = 150.0
+text = "Num4:"
+
 [node name="avelbl" type="Label" parent="."]
 offset_left = 61.0
 offset_top = 214.0
@@ -21,32 +49,28 @@ offset_bottom = 245.0
 text = "Average:"
 
 [node name="LineEdit" type="LineEdit" parent="."]
-offset_left = 57.0
+offset_left = 118.0
 offset_top = 13.0
 offset_right = 284.0
-offset_bottom = 72.0
-text = "Num1:"
+offset_bottom = 71.0
 
 [node name="LineEdit2" type="LineEdit" parent="."]
-offset_left = 310.0
+offset_left = 402.0
 offset_top = 12.0
 offset_right = 537.0
-offset_bottom = 71.0
-text = "Num2:"
+offset_bottom = 72.0
 
 [node name="LineEdit3" type="LineEdit" parent="."]
-offset_left = 60.0
+offset_left = 114.0
 offset_top = 98.0
 offset_right = 287.0
-offset_bottom = 157.0
-text = "Num3:"
+offset_bottom = 155.0
 
 [node name="LineEdit4" type="LineEdit" parent="."]
-offset_left = 312.0
+offset_left = 398.0
 offset_top = 97.0
 offset_right = 539.0
-offset_bottom = 156.0
-text = "Num4:"
+offset_bottom = 154.0
 
 [node name="Calcbtn" type="Button" parent="."]
 offset_left = 27.0

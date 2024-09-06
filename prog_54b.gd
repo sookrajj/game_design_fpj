@@ -17,10 +17,10 @@ func _on_calcbtn_pressed() -> void:
 func _on_clearbtn_pressed() -> void:
 	$sumlbl.text = "Sum: "
 	$avelbl.text = "Average: "
-	$LineEdit.text = "Num1: "
-	$LineEdit2.text = "Num2: "
-	$LineEdit3.text = "Num3: "
-	$LineEdit4.text = "Num4: "
+	$LineEdit.text = ""
+	$LineEdit2.text = ""
+	$LineEdit3.text = ""
+	$LineEdit4.text = ""
 
 
 func _on_exitbtn_pressed() -> void:

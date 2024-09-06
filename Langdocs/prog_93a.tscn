@@ -1,0 +1,89 @@
+[gd_scene load_steps=3 format=3 uid="uid://8f3fndxhqvxc"]
+
+[ext_resource type="Script" path="res://prog_93a.gd" id="1_xdre1"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_ds1ar"]
+
+[node name="prog93a" type="Node2D"]
+script = ExtResource("1_xdre1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 136.0
+offset_top = 35.0
+offset_right = 389.0
+offset_bottom = 153.0
+text = "C O M P S C I Electric
+------------------------------
+Kilowatts Used:
+------------------------------
+
+Base Rate:
+Sursharge
+Citytax
+                             -------
+Pay this Amount:
+
+After May 20th Pay:"
+
+[node name="Base" type="Label" parent="."]
+offset_left = 252.0
+offset_top = 165.0
+offset_right = 292.0
+offset_bottom = 188.0
+
+[node name="Sur" type="Label" parent="."]
+offset_left = 253.0
+offset_top = 193.0
+offset_right = 293.0
+offset_bottom = 216.0
+
+[node name="City" type="Label" parent="."]
+offset_left = 256.0
+offset_top = 217.0
+offset_right = 336.0
+offset_bottom = 242.0
+
+[node name="Pay" type="Label" parent="."]
+offset_left = 289.0
+offset_top = 269.0
+offset_right = 369.0
+offset_bottom = 294.0
+
+[node name="Late" type="Label" parent="."]
+offset_left = 313.0
+offset_top = 322.0
+offset_right = 393.0
+offset_bottom = 347.0
+
+[node name="Kilo" type="LineEdit" parent="."]
+offset_left = 275.0
+offset_top = 83.0
+offset_right = 342.063
+offset_bottom = 114.0
+
+[node name="Calc" type="Button" parent="."]
+offset_left = 39.0
+offset_top = 369.0
+offset_right = 141.0
+offset_bottom = 435.0
+theme = ExtResource("2_ds1ar")
+text = "Calc"
+
+[node name="Clear" type="Button" parent="."]
+offset_left = 195.0
+offset_top = 369.0
+offset_right = 297.0
+offset_bottom = 435.0
+theme = ExtResource("2_ds1ar")
+text = "Clear"
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 338.0
+offset_top = 371.0
+offset_right = 440.0
+offset_bottom = 437.0
+theme = ExtResource("2_ds1ar")
+text = "Exit"
+
+[connection signal="pressed" from="Calc" to="." method="_on_calc_pressed"]
+[connection signal="pressed" from="Clear" to="." method="_on_clear_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
