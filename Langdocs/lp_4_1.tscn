@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://dc8axoqy5qf6f"]
+
+[ext_resource type="Script" path="res://lp_4_1.gd" id="1_7o7fb"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_jjxda"]
+
+[node name="lp4-1" type="Node2D"]
+script = ExtResource("1_7o7fb")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 21.0
+offset_right = 364.0
+offset_bottom = 73.0
+text = "Enter number of copies to be printed: "
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 361.0
+offset_top = 20.0
+offset_right = 602.0
+offset_bottom = 51.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 63.0
+offset_top = 55.0
+offset_right = 321.0
+offset_bottom = 99.0
+text = "Price per copy: "
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 94.0
+offset_right = 443.0
+offset_bottom = 139.0
+text = "total cost: "
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 138.0
+offset_right = 182.0
+offset_bottom = 205.0
+theme = ExtResource("2_jjxda")
+text = "Calculate"
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 215.0
+offset_top = 140.0
+offset_right = 362.0
+offset_bottom = 207.0
+theme = ExtResource("2_jjxda")
+text = "Clear"
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 414.0
+offset_top = 148.0
+offset_right = 561.0
+offset_bottom = 215.0
+theme = ExtResource("2_jjxda")
+text = "Exit"
+
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]

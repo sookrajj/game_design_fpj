@@ -1,0 +1,93 @@
+[gd_scene load_steps=3 format=3 uid="uid://dya366mylu27m"]
+
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="1_i42os"]
+[ext_resource type="Script" path="res://Langdocs/lp_4_2.gd" id="1_n3ap4"]
+
+[node name="lp4-2" type="Node2D"]
+script = ExtResource("1_n3ap4")
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 218.0
+offset_right = 182.0
+offset_bottom = 285.0
+theme = ExtResource("1_i42os")
+text = "Calculate"
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 214.0
+offset_top = 220.0
+offset_right = 361.0
+offset_bottom = 287.0
+theme = ExtResource("1_i42os")
+text = "Clear"
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 391.0
+offset_top = 220.0
+offset_right = 538.0
+offset_bottom = 287.0
+theme = ExtResource("1_i42os")
+text = "Exit"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 365.0
+offset_top = 20.0
+offset_right = 432.063
+offset_bottom = 51.0
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 381.0
+offset_top = 68.0
+offset_right = 448.063
+offset_bottom = 99.0
+
+[node name="LineEdit3" type="LineEdit" parent="."]
+offset_left = 373.0
+offset_top = 107.0
+offset_right = 440.063
+offset_bottom = 138.0
+
+[node name="LineEdit4" type="LineEdit" parent="."]
+offset_left = 377.0
+offset_top = 145.0
+offset_right = 444.063
+offset_bottom = 176.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 86.0
+offset_top = 21.0
+offset_right = 379.0
+offset_bottom = 56.0
+text = "Enter package weight in kilograms:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 69.0
+offset_right = 381.0
+offset_bottom = 104.0
+text = "Enter package length in centimeters:"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 88.0
+offset_top = 108.0
+offset_right = 381.0
+offset_bottom = 143.0
+text = "Enter package width in centimeters:"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 89.0
+offset_top = 146.0
+offset_right = 382.0
+offset_bottom = 181.0
+text = "Enter package height in centimeters:"
+
+[node name="Label5" type="Label" parent="."]
+offset_left = 90.0
+offset_top = 182.0
+offset_right = 383.0
+offset_bottom = 217.0
+
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]

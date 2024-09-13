@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfel2gbb33bir"]
+
+[ext_resource type="Script" path="res://Langdocs/lp_4_3.gd" id="1_qsloc"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="1_r35jr"]
+
+[node name="lp4-3" type="Node2D"]
+script = ExtResource("1_qsloc")
+
+[node name="Button4" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 218.0
+offset_right = 182.0
+offset_bottom = 285.0
+theme = ExtResource("1_r35jr")
+text = "Calculate"
+
+[node name="Button5" type="Button" parent="."]
+offset_left = 236.0
+offset_top = 219.0
+offset_right = 383.0
+offset_bottom = 286.0
+theme = ExtResource("1_r35jr")
+text = "Clear"
+
+[node name="Button6" type="Button" parent="."]
+offset_left = 421.0
+offset_top = 219.0
+offset_right = 568.0
+offset_bottom = 286.0
+theme = ExtResource("1_r35jr")
+text = "Exit"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 114.0
+offset_top = 31.0
+offset_right = 347.0
+offset_bottom = 74.0
+text = "Enter the number of eggs purchased: "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 117.0
+offset_top = 77.0
+offset_right = 400.0
+offset_bottom = 150.0
+text = "-"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 423.0
+offset_top = 30.0
+offset_right = 490.063
+offset_bottom = 61.0
+
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="Button6" to="." method="_on_button_6_pressed"]
