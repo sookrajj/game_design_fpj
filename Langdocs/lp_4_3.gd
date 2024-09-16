@@ -23,7 +23,7 @@ func _on_button_4_pressed() -> void:
 
 func _on_button_5_pressed() -> void:
 	$LineEdit.text = ""
-	$label2.text = ""
+	$Label2.text = ""
 
 
 func _on_button_6_pressed() -> void:
