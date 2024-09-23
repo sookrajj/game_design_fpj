@@ -81,7 +81,7 @@ text = "Exit"
 
 [connection signal="pressed" from="calcbtn" to="." method="_on_calcbtn_pressed"]
 [connection signal="pressed" from="calcbtn" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="clearbtn" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="clearbtn" to="." method="_on_clearbtn_pressed"]
+[connection signal="pressed" from="clearbtn" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="exitbtn" to="." method="_on_exitbtn_pressed"]
 [connection signal="pressed" from="exitbtn" to="." method="_on_button_3_pressed"]
