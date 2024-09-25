@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3 uid="uid://brk6a5ee61xvj"]
+
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="1_7djq0"]
+[ext_resource type="Script" path="res://Langdocs/prog_52_func.gd" id="1_yywib"]
+
+[node name="prog52func" type="Node2D"]
+script = ExtResource("1_yywib")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 71.0
+offset_top = 32.0
+offset_right = 151.0
+offset_bottom = 57.0
+text = "Length:"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 76.0
+offset_top = 78.0
+offset_right = 156.0
+offset_bottom = 103.0
+text = "Width:"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 141.0
+offset_top = 133.0
+offset_right = 545.0
+offset_bottom = 158.0
+text = "Area:"
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 142.0
+offset_top = 163.0
+offset_right = 546.0
+offset_bottom = 188.0
+text = "Perimeter:"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 32.0
+offset_top = 213.0
+offset_right = 179.0
+offset_bottom = 280.0
+theme = ExtResource("1_7djq0")
+text = "Calculate"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 214.0
+offset_top = 216.0
+offset_right = 361.0
+offset_bottom = 283.0
+theme = ExtResource("1_7djq0")
+text = "Clear"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 393.0
+offset_top = 213.0
+offset_right = 540.0
+offset_bottom = 280.0
+theme = ExtResource("1_7djq0")
+text = "Exit"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 148.0
+offset_top = 32.0
+offset_right = 285.0
+offset_bottom = 65.0
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 146.0
+offset_top = 75.0
+offset_right = 283.0
+offset_bottom = 108.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

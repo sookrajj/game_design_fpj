@@ -1,0 +1,120 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgo7yn23dddhn"]
+
+[ext_resource type="Script" path="res://Langdocs/calculator.gd" id="1_armuu"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="1_vgg7m"]
+
+[node name="calculator" type="Node2D"]
+script = ExtResource("1_armuu")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 47.0
+offset_top = 24.0
+offset_right = 115.0
+offset_bottom = 57.0
+text = "Number 1: "
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 46.0
+offset_top = 97.0
+offset_right = 132.0
+offset_bottom = 130.0
+text = "Operation: "
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 160.0
+offset_right = 137.0
+offset_bottom = 193.0
+text = "Number 2: "
+
+[node name="Label4" type="Label" parent="."]
+offset_left = 51.0
+offset_top = 206.0
+offset_right = 139.0
+offset_bottom = 239.0
+text = "Result: "
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_left = 146.0
+offset_top = 22.0
+offset_right = 213.063
+offset_bottom = 53.0
+
+[node name="LineEdit2" type="LineEdit" parent="."]
+offset_left = 144.0
+offset_top = 158.0
+offset_right = 211.063
+offset_bottom = 189.0
+
+[node name="Add" type="Button" parent="."]
+offset_left = 307.0
+offset_top = 21.0
+offset_right = 361.0
+offset_bottom = 57.0
+theme = ExtResource("1_vgg7m")
+text = "+"
+
+[node name="Sub" type="Button" parent="."]
+offset_left = 392.0
+offset_top = 18.0
+offset_right = 446.0
+offset_bottom = 54.0
+theme = ExtResource("1_vgg7m")
+text = "-"
+
+[node name="Mul" type="Button" parent="."]
+offset_left = 479.0
+offset_top = 18.0
+offset_right = 533.0
+offset_bottom = 54.0
+theme = ExtResource("1_vgg7m")
+text = "*"
+
+[node name="Mod" type="Button" parent="."]
+offset_left = 480.0
+offset_top = 73.0
+offset_right = 534.0
+offset_bottom = 109.0
+theme = ExtResource("1_vgg7m")
+text = "MOD"
+
+[node name="Div" type="Button" parent="."]
+offset_left = 397.0
+offset_top = 73.0
+offset_right = 451.0
+offset_bottom = 109.0
+theme = ExtResource("1_vgg7m")
+text = "/"
+
+[node name="Pow" type="Button" parent="."]
+offset_left = 313.0
+offset_top = 72.0
+offset_right = 367.0
+offset_bottom = 108.0
+theme = ExtResource("1_vgg7m")
+text = "**"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 314.0
+offset_top = 144.0
+offset_right = 501.0
+offset_bottom = 189.0
+theme = ExtResource("1_vgg7m")
+text = "Clear"
+
+[node name="Button3" type="Button" parent="."]
+offset_left = 311.0
+offset_top = 197.0
+offset_right = 504.0
+offset_bottom = 235.0
+theme = ExtResource("1_vgg7m")
+text = "Exit"
+
+[connection signal="pressed" from="Add" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="Sub" to="." method="_on_sub_pressed"]
+[connection signal="pressed" from="Mul" to="." method="_on_mul_pressed"]
+[connection signal="pressed" from="Mod" to="." method="_on_mod_pressed"]
+[connection signal="pressed" from="Div" to="." method="_on_div_pressed"]
+[connection signal="pressed" from="Pow" to="." method="_on_pow_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
