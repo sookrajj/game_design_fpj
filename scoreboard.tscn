@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://baw3ahqhs1bpr"]
+
+[ext_resource type="Script" path="res://scoreboard.gd" id="1_vgj3w"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="2_h4lsp"]
+
+[node name="Scoreboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vgj3w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 24.0
+offset_right = 334.0
+offset_bottom = 65.0
+theme = ExtResource("2_h4lsp")
+text = "Modify points (add/subtract): "
+
+[node name="lblOut" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 111.0
+offset_right = 306.0
+offset_bottom = 148.0
+theme = ExtResource("2_h4lsp")
+text = "0"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 339.0
+offset_top = 23.0
+offset_right = 596.0
+offset_bottom = 54.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 260.0
+offset_right = 197.0
+offset_bottom = 324.0
+theme = ExtResource("2_h4lsp")
+text = "Update"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 503.0
+offset_top = 257.0
+offset_right = 685.0
+offset_bottom = 321.0
+theme = ExtResource("2_h4lsp")
+text = "Reset"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
