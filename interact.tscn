@@ -8,6 +8,7 @@ size = Vector2(78, 70)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mgrpf"]
 
 [node name="interact" type="RigidBody2D"]
+input_pickable = true
 freeze = true
 script = ExtResource("1_5p56b")
 
