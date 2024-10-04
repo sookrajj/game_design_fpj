@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://csbaepjrjlode"]
+
+[ext_resource type="Script" path="res://plt_player.gd" id="1_7ax0p"]
+[ext_resource type="Texture2D" uid="uid://cv4ren20nlh5u" path="res://icon.svg" id="2_xpts0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e3eds"]
+
+[node name="plt_player" type="CharacterBody2D"]
+script = ExtResource("1_7ax0p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2, -5)
+scale = Vector2(0.15625, 0.21875)
+texture = ExtResource("2_xpts0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -5)
+shape = SubResource("CapsuleShape2D_e3eds")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)

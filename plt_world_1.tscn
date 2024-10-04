@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhbb4731sn226"]
+
+[ext_resource type="Script" path="res://plt_world_1.gd" id="1_i80g8"]
+[ext_resource type="PackedScene" uid="uid://csbaepjrjlode" path="res://plt_player.tscn" id="2_2knbb"]
+[ext_resource type="PackedScene" uid="uid://cxih136trgnq7" path="res://interact.tscn" id="3_3q30w"]
+[ext_resource type="PackedScene" uid="uid://c56exhoxkninv" path="res://plt_enemy.tscn" id="4_bjpp3"]
+[ext_resource type="PackedScene" uid="uid://dgji53mhn6qkj" path="res://draggable.tscn" id="5_ba6r1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hs3m7"]
+size = Vector2(212.75, 48.5)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cv6x3"]
+
+[node name="plt_world1" type="Node2D"]
+script = ExtResource("1_i80g8")
+
+[node name="plt_player" parent="." instance=ExtResource("2_2knbb")]
+position = Vector2(134, 57)
+
+[node name="world" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world"]
+polygon = PackedVector2Array(2, -130, 53, -121, 69, 524, 133, 566, 226, 564, 228, 481, 313, 440, 384, 498, 477, 502, 518, 464, 575, 415, 626, 438, 611, 504, 699, 509, 698, 447, 735, 543, 813, 479, 903, 536, 1079, 498, 1120, 457, 1296, 536, 1367, 496, 1318, 426, 1370, 385, 1414, 411, 1467, 336, 1497, 394, 1512, 464, 1670, 392, 1892, 566, 1829, 405, 1905, 334, 2023, 284, 1948, 248, 2022, 233, 2020, 200, 1950, 203, 2021, 187, 2020, 155, 1956, 167, 2021, 138, 2018, 104, 1957, 129, 2015, 90, 1983, 88, 2009, 51, 1990, 45, 2018, 12, 2004.3, -21.4437, 1950, -154, 2061, -148, 2061, 895, 2, 904)
+
+[node name="Polygon2D" type="Polygon2D" parent="world/CollisionPolygon2D"]
+
+[node name="start_platform" type="StaticBody2D" parent="."]
+position = Vector2(-74, 142)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="start_platform"]
+position = Vector2(178.625, -41.25)
+shape = SubResource("RectangleShape2D_hs3m7")
+
+[node name="Sprite2D" type="Sprite2D" parent="start_platform/CollisionShape2D"]
+position = Vector2(1.78128, -0.437492)
+scale = Vector2(215.187, 45.375)
+texture = SubResource("PlaceholderTexture2D_cv6x3")
+
+[node name="interact" parent="." instance=ExtResource("3_3q30w")]
+position = Vector2(1095, 432)
+
+[node name="plt_enemy" parent="." instance=ExtResource("4_bjpp3")]
+position = Vector2(441, 458)
+
+[node name="plt_enemy2" parent="." instance=ExtResource("4_bjpp3")]
+position = Vector2(1287, 478)
+
+[node name="plt_enemy3" parent="." instance=ExtResource("4_bjpp3")]
+position = Vector2(1663, 342)
+
+[node name="draggable" parent="." instance=ExtResource("5_ba6r1")]
+position = Vector2(1075, 319)
