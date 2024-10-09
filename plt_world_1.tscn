@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhbb4731sn226"]
+[gd_scene load_steps=9 format=3 uid="uid://bhbb4731sn226"]
 
 [ext_resource type="Script" path="res://plt_world_1.gd" id="1_i80g8"]
 [ext_resource type="PackedScene" uid="uid://csbaepjrjlode" path="res://plt_player.tscn" id="2_2knbb"]
 [ext_resource type="PackedScene" uid="uid://cxih136trgnq7" path="res://interact.tscn" id="3_3q30w"]
 [ext_resource type="PackedScene" uid="uid://c56exhoxkninv" path="res://plt_enemy.tscn" id="4_bjpp3"]
 [ext_resource type="PackedScene" uid="uid://dgji53mhn6qkj" path="res://draggable.tscn" id="5_ba6r1"]
+[ext_resource type="PackedScene" uid="uid://lj871nctf71q" path="res://level_transfer.tscn" id="6_woe42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hs3m7"]
 size = Vector2(212.75, 48.5)
@@ -52,4 +53,8 @@ position = Vector2(1585, 398)
 lock_rotation = true
 
 [node name="draggable" parent="." instance=ExtResource("5_ba6r1")]
-position = Vector2(1075, 319)
+position = Vector2(947, 445)
+
+[node name="level_transfer" parent="." instance=ExtResource("6_woe42")]
+position = Vector2(1916, 255)
+next_level = "plt_world_2"

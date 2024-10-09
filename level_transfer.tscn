@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://lj871nctf71q"]
+
+[ext_resource type="Script" path="res://level_transfer.gd" id="1_581kr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnki"]
+size = Vector2(28, 52)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ygpfk"]
+
+[node name="level_transfer" type="Area2D"]
+script = ExtResource("1_581kr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ypnki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(28, 52)
+texture = SubResource("PlaceholderTexture2D_ygpfk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
