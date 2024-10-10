@@ -42,15 +42,12 @@ position = Vector2(1095, 432)
 
 [node name="plt_enemy" parent="." instance=ExtResource("4_bjpp3")]
 position = Vector2(441, 458)
-lock_rotation = true
 
 [node name="plt_enemy2" parent="." instance=ExtResource("4_bjpp3")]
 position = Vector2(1255, 488)
-lock_rotation = true
 
 [node name="plt_enemy3" parent="." instance=ExtResource("4_bjpp3")]
 position = Vector2(1585, 398)
-lock_rotation = true
 
 [node name="draggable" parent="." instance=ExtResource("5_ba6r1")]
 position = Vector2(947, 445)

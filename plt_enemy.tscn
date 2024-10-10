@@ -55,7 +55,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="plt_enemy" type="RigidBody2D"]
+[node name="plt_enemy" type="RigidBody2D" groups=["enemies"]]
+lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_xogis")
