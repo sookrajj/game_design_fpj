@@ -1,22 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://bt6xm2q1mjvkn"]
 
-[ext_resource type="Script" path="res://bullet.gd" id="1_6ofcm"]
+[ext_resource type="Script" path="res://projectile.gd" id="1_ljbb2"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j0573"]
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lpbim"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fpcm2"]
-size = Vector2(14.5, 8.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v8epk"]
+size = Vector2(16, 8)
 
-[node name="bullet" type="RigidBody2D"]
-script = ExtResource("1_6ofcm")
+[node name="bullet" type="Node2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(100, 100, 100, 1)
-position = Vector2(2.38419e-07, 4.61936e-07)
-scale = Vector2(14.5, 8)
-texture = SubResource("PlaceholderTexture2D_j0573")
+[node name="projectile" type="RigidBody2D" parent="."]
+contact_monitor = true
+script = ExtResource("1_ljbb2")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_fpcm2")
+[node name="Sprite2D" type="Sprite2D" parent="projectile"]
+scale = Vector2(16, 8)
+texture = SubResource("PlaceholderTexture2D_lpbim")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="projectile"]
+shape = SubResource("RectangleShape2D_v8epk")
