@@ -59,12 +59,12 @@ func _physics_process(delta: float) -> void:
 @onready var anim = $AnimatedSprite2D
 func update_animation(direction):
 	if not self.is_on_floor():
-		anim.play("jump")
+		anim.play("new_jump")
 	elif direction != 0:
-		anim.play("walk")
+		anim.play("new_walk")
 		anim.flip_h = direction < 0
 	else :
-		anim.play("default")
+		anim.play("new_default")
 
 
 

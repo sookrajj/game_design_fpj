@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://behgw30cuepoq"]
+
+[ext_resource type="Script" path="res://projectile.gd" id="1_mh0td"]
+[ext_resource type="Texture2D" uid="uid://7fwvbfk6dl4h" path="res://assests/sprites/default_tiles.png" id="2_if2fg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3plt"]
+size = Vector2(19, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnjjd"]
+atlas = ExtResource("2_if2fg")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bf50k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnjjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="projectiletry" type="RigidBody2D"]
+lock_rotation = true
+freeze = true
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_mh0td")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+scale = Vector2(16, 8)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 0)
+shape = SubResource("RectangleShape2D_e3plt")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(1.5, 9.53674e-07)
+scale = Vector2(0.59375, 0.5)
+sprite_frames = SubResource("SpriteFrames_bf50k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

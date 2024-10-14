@@ -1,26 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt6xm2q1mjvkn"]
+[gd_scene load_steps=6 format=3 uid="uid://bt6xm2q1mjvkn"]
 
 [ext_resource type="Script" path="res://projectile.gd" id="1_ljbb2"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_lpbim"]
+[ext_resource type="Texture2D" uid="uid://7fwvbfk6dl4h" path="res://assests/sprites/default_tiles.png" id="2_imgjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8epk"]
-size = Vector2(16, 8)
+size = Vector2(19, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnjjd"]
+atlas = ExtResource("2_imgjx")
+region = Rect2(192, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i1pgs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnjjd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="bullet" type="Node2D"]
 position = Vector2(106, 77)
 
-[node name="projectile" type="RigidBody2D" parent="."]
-lock_rotation = true
-freeze = true
-contact_monitor = true
+[node name="projectile" type="Area2D" parent="."]
 script = ExtResource("1_ljbb2")
 
 [node name="Sprite2D" type="Sprite2D" parent="projectile"]
 scale = Vector2(16, 8)
-texture = SubResource("PlaceholderTexture2D_lpbim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="projectile"]
+position = Vector2(1.5, 0)
 shape = SubResource("RectangleShape2D_v8epk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="projectile"]
+position = Vector2(1.5, 9.53674e-07)
+scale = Vector2(0.59375, 0.5)
+sprite_frames = SubResource("SpriteFrames_i1pgs")
 
 [connection signal="body_entered" from="projectile" to="projectile" method="_on_body_entered"]
