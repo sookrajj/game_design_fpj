@@ -8,8 +8,11 @@
 size = Vector2(16, 8)
 
 [node name="bullet" type="Node2D"]
+position = Vector2(106, 77)
 
 [node name="projectile" type="RigidBody2D" parent="."]
+lock_rotation = true
+freeze = true
 contact_monitor = true
 script = ExtResource("1_ljbb2")
 
@@ -19,3 +22,5 @@ texture = SubResource("PlaceholderTexture2D_lpbim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="projectile"]
 shape = SubResource("RectangleShape2D_v8epk")
+
+[connection signal="body_entered" from="projectile" to="projectile" method="_on_body_entered"]

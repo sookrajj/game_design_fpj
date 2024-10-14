@@ -4,7 +4,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var gravity_on = true
-@export var projectile = PackedScene
+@onready var bullet = preload("res://bullet.tscn")
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -66,7 +66,10 @@ func update_animation(direction):
 	else :
 		anim.play("default")
 
-func shoot() -> void:
-	var inst = load("res://projectile.tscn")
-	add_child(inst)
-	
+
+
+func shoot():
+	var instance = bullet.instantiate()
+	add_child(instance) 
+	var xpos = self.global_position + Vector2(20,5)
+	instance.global_position = xpos

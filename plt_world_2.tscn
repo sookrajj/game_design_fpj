@@ -1244,3 +1244,4 @@ position = Vector2(591, 141)
 
 [node name="level_transfer" parent="." instance=ExtResource("4_cgkp5")]
 position = Vector2(772, 118)
+next_level = "plt_world_3"

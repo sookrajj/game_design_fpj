@@ -1,7 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://csbaepjrjlode"]
+[gd_scene load_steps=18 format=3 uid="uid://csbaepjrjlode"]
 
 [ext_resource type="Script" path="res://plt_player.gd" id="1_7ax0p"]
-[ext_resource type="PackedScene" uid="uid://cqqptvstap575" path="res://projectile.tscn" id="2_jgwa0"]
 [ext_resource type="Texture2D" uid="uid://cv4ren20nlh5u" path="res://icon.svg" id="2_xpts0"]
 [ext_resource type="Texture2D" uid="uid://c3haevrcbjt4w" path="res://assests/sprites/characters.png" id="3_s63x3"]
 [ext_resource type="PackedScene" uid="uid://bgn57jbrfsg60" path="res://pause_menu.tscn" id="3_taqux"]
@@ -106,7 +105,6 @@ animations = [{
 
 [node name="plt_player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_7ax0p")
-projectile = ExtResource("2_jgwa0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

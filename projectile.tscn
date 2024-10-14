@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqqptvstap575"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_714ka"]
-size = Vector2(28, 16)
+size = Vector2(14, 6)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_knvyp"]
 
@@ -12,5 +12,5 @@ shape = SubResource("RectangleShape2D_714ka")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.235163, 0.568035, 1, 1)
-scale = Vector2(28, 16)
+scale = Vector2(14, 6)
 texture = SubResource("PlaceholderTexture2D_knvyp")
