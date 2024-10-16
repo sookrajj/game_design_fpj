@@ -1463,6 +1463,7 @@ position = Vector2(223, 629)
 
 [node name="level_transfer" parent="." instance=ExtResource("3_cfui0")]
 position = Vector2(1021, 624)
+next_level = "plt_world_1"
 
 [node name="plt_player" parent="." instance=ExtResource("4_a7n7c")]
 position = Vector2(96, 46)
