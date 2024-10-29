@@ -35,5 +35,5 @@ func _on_ap_ad_pressed() -> void:
 		if child is RigidBody2D:
 			child.inertia = iner
 			child.linear_velocity = velocity
-			child.mass = mass
-			child.linear_velocity = Vector2(child.x*crv.y - child.y*crv.x)
+			#child.mass = mass
+			child.linear_velocity = Vector2(child.linear_velocity.x*crv.y, child.linear_velocity.y*crv.x)
