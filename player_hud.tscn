@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://cswheagtfmkxc"]
+
+[ext_resource type="Script" path="res://player_hud.gd" id="1_ckgqt"]
+[ext_resource type="Texture2D" uid="uid://cr4a0bht3wmit" path="res://assests/sprites/zelda_like/objects.png" id="1_foe6v"]
+[ext_resource type="Theme" uid="uid://b0cs0qqc6nrp7" path="res://Big_font.tres" id="3_odvbw"]
+
+[node name="player_hud" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_ckgqt")
+
+[node name="player_health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_top = -2.0
+offset_right = 537.0
+offset_bottom = 194.0
+
+[node name="Hearts" type="Sprite2D" parent="player_health"]
+position = Vector2(49, 38)
+scale = Vector2(5, 4.612)
+texture = ExtResource("1_foe6v")
+hframes = 33
+vframes = 20
+frame = 8
+
+[node name="Money" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -119.0
+offset_right = 303.0
+grow_vertical = 0
+
+[node name="Icon" type="Sprite2D" parent="Money"]
+position = Vector2(62, 64)
+scale = Vector2(6.625, 6.125)
+texture = ExtResource("1_foe6v")
+hframes = 33
+vframes = 20
+frame = 132
+
+[node name="Coins" type="Label" parent="Money"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 40.0
+offset_right = 220.0
+offset_bottom = 108.0
+theme = ExtResource("3_odvbw")
+text = "000"
