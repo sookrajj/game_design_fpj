@@ -13,6 +13,10 @@ config_version=5
 config/name="game_design_1"
 config/features=PackedStringArray("4.3")
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [input]
 
 zoom_cam_in={

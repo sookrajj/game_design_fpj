@@ -7,7 +7,8 @@ enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
 	"max_health" : 60.0, #20 hp per heart, 5 per fraction
-	"health" : 60, # min 60 max 400
+	"health" : 45.0, # min 60 max 400
+	"max_money" : 999,
 	"money" : 0,
 	"state" : STATES.IDLE,
 	"secondaries" : [],
@@ -27,6 +28,7 @@ func pickup_health(value):
 
 func pickup_money(value):
 	data.money += value
+	data.money = clamp(data.money, 0, data.max_money)
 
 
 func _physics_process(delta: float) -> void:

@@ -2,9 +2,13 @@ extends CanvasLayer
 
 @onready var player = get_tree().get_first_node_in_group("Player")
 @onready var hearts = $player_health/Hearts
+@onready var coins = $Money/Coins
 
 const HEART_ROW_SIZE = 10
 const HEART_OFFSET = 16
+
+func add_money():
+	coins = coins + player.data.money
 
 func create_heart():
 	var newheart = Sprite2D.new()
@@ -25,6 +29,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	add_money()
 	var ph = player.data.health
 	var fh = floor(ph/20)
 	var rh = int(ph)%20

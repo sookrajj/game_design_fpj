@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://cfqeppxef1x07"]
+[gd_scene load_steps=5 format=4 uid="uid://cfqeppxef1x07"]
 
 [ext_resource type="TileSet" uid="uid://cweje8ab1gtie" path="res://assests/td_world_1_tileset.tres" id="1_uctmr"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_xejw5"]
+[ext_resource type="PackedScene" uid="uid://c0l5xu3yuh8su" path="res://entities/items/mini_heart.tscn" id="3_27rj0"]
+[ext_resource type="PackedScene" uid="uid://nyol2wqi7px5" path="res://entities/items/coin.tscn" id="4_nio7m"]
 
 [node name="td_world1" type="Node2D"]
 
@@ -16,3 +18,36 @@ tile_set = ExtResource("1_uctmr")
 
 [node name="td_player" parent="." groups=["Player"] instance=ExtResource("2_xejw5")]
 position = Vector2(16, 17)
+
+[node name="miniHeart" parent="." instance=ExtResource("3_27rj0")]
+position = Vector2(-143, -46)
+
+[node name="miniHeart2" parent="." instance=ExtResource("3_27rj0")]
+position = Vector2(204, -43)
+
+[node name="miniHeart3" parent="." instance=ExtResource("3_27rj0")]
+position = Vector2(22, 84)
+
+[node name="coin" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(-9, 83)
+
+[node name="coin2" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(-15, 53)
+
+[node name="coin3" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(-19, 25)
+
+[node name="coin4" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(-8, -5)
+
+[node name="coin5" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(24, -13)
+
+[node name="coin6" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(45, 11)
+
+[node name="coin7" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(45, 42)
+
+[node name="coin8" parent="." instance=ExtResource("4_nio7m")]
+position = Vector2(44, 70)
