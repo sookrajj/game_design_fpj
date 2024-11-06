@@ -7,8 +7,13 @@ extends CanvasLayer
 const HEART_ROW_SIZE = 10
 const HEART_OFFSET = 16
 
-func add_money():
-	coins = coins + player.data.money
+func add_money(value):
+	if int(coins.text) + value < 10:
+		coins.text = "00" + str(int(coins.text) + value)
+	elif int(coins.text) + value < 100:
+		coins.text = "0" + str(int(coins.text) + value)
+	else : 
+		coins.text = str(int(coins.text) + value)
 
 func create_heart():
 	var newheart = Sprite2D.new()
@@ -29,7 +34,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	add_money()
 	var ph = player.data.health
 	var fh = floor(ph/20)
 	var rh = int(ph)%20
