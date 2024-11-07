@@ -373,10 +373,8 @@ script = ExtResource("1_awx54")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
 sprite_frames = SubResource("SpriteFrames_2gc0p")
-animation = &"swipe_charge"
+animation = &"swipe_left"
 autoplay = "idle_down"
-frame = 11
-frame_progress = 1.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)

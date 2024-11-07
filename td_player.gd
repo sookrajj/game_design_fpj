@@ -7,7 +7,7 @@ enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
 	"max_health" : 60.0, #20 hp per heart, 5 per fraction
-	"health" : 45.0, # min 60 max 400
+	"health" : 10.0, # min 60 max 400
 	"max_money" : 999,
 	"money" : 0,
 	"state" : STATES.IDLE,
@@ -43,6 +43,24 @@ func attack():
 	slash.rotation = Vector2().angle_to_point(-attack_dir)
 	add_child(slash)
 	animation_lock = 0.2
+
+func charged_attack():
+	data.state = STATES.ATTACKING
+	$AnimatedSprite2D.play("swipe_charge")
+	attack_dir = -look_direction
+	damage_lock = 0.3
+	for i in range(9):
+		var angle = attack_dir.angle() + (i-4) * PI/4
+		var dir = Vector2(cos(angle), sin(angle))
+		var ns = slash_scene.instantiate()
+		ns.position = dir * 20
+		ns.rotation = Vector2().angle_to_point(-dir)
+		ns.damage *= 1.5
+		add_child(ns)
+		await get_tree().create_timer(0.03).timeout
+	animation_lock = 0.2
+	await $AnimatedSprite2D.animation_finished
+	data.state = STATES.IDLE
 
 func _ready() -> void:
 	p_HUD.show()
@@ -85,25 +103,34 @@ func _physics_process(delta: float) -> void:
 	if data.state != STATES.DEAD:
 		if Input.is_action_just_pressed("ui_accept"):
 			attack()
-			# TODO: charge time/state
+			charge_start = 0.0
+			data.state = STATES.CHARGING
+		
+		charge_start += delta
+		if Input.is_action_just_released("ui_accept"):
+			if charge_start >= charge_time and data.state == STATES.CHARGING:
+				charged_attack()
+			else:
+				data.state = STATES.IDLE
 	if Input.is_action_just_pressed("ui_cancel"):
 		$Camera2D/pause_menu.show()
 		get_tree().paused = true
 	pass
 
 func update_animation(direction):
-	var aname = "idle_"
-	if direction.length() > 0:
-		aname = "walk_"
-	if look_direction.x != 0: 
-		aname += "side"
-		$AnimatedSprite2D.flip_h = look_direction.x < 0
-	elif look_direction.y < 0:
-		aname += "up"
-	#else:
-		#aname += "down"
-	elif look_direction.y > 0:
-		aname += "down"
-	$AnimatedSprite2D.animation = aname
-	$AnimatedSprite2D.play()
+	if data.state == STATES.IDLE:
+		var aname = "idle_"
+		if direction.length() > 0:
+			aname = "walk_"
+		if look_direction.x != 0: 
+			aname += "side"
+			$AnimatedSprite2D.flip_h = look_direction.x < 0
+		elif look_direction.y < 0:
+			aname += "up"
+		#else:
+			#aname += "down"
+		elif look_direction.y > 0:
+			aname += "down"
+		$AnimatedSprite2D.animation = aname
+		$AnimatedSprite2D.play()
 	pass

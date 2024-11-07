@@ -50,4 +50,4 @@ position = Vector2(45, 11)
 position = Vector2(45, 42)
 
 [node name="coin8" parent="." instance=ExtResource("4_nio7m")]
-position = Vector2(44, 70)
+position = Vector2(41, 69)
