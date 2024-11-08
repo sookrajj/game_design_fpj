@@ -6,8 +6,8 @@ const MAX_OBTAINABLE_HEALTH = 400.0
 enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
-	"max_health" : 60.0, #20 hp per heart, 5 per fraction
-	"health" : 10.0, # min 60 max 400
+	"max_health" : 6000.0, #20 hp per heart, 5 per fraction
+	"health" : 1.0, # min 60 max 400
 	"max_money" : 999,
 	"money" : 0,
 	"state" : STATES.IDLE,
@@ -61,6 +61,27 @@ func charged_attack():
 	animation_lock = 0.2
 	await $AnimatedSprite2D.animation_finished
 	data.state = STATES.IDLE
+
+signal health_depleted
+
+func take_damage(damage):
+	if damage_lock == 0.0:
+		data.health -= damage_lock
+		data.state = STATES.DAMAGED
+		damage_lock = 0.5
+		animation_lock = damage * 0.005
+		
+		if data.health > 0:
+			#TODO play death sound
+			pass
+		else:
+			data.state = STATES.DEAD
+			#TODO play death anim and sound
+			await get_tree().create_timer(0.5).timeout
+			health_depleted.emit()
+	
+	pass
+
 
 func _ready() -> void:
 	p_HUD.show()
