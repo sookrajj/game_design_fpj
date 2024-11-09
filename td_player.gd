@@ -6,7 +6,7 @@ const MAX_OBTAINABLE_HEALTH = 400.0
 enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
-	"max_health" : 6000.0, #20 hp per heart, 5 per fraction
+	"max_health" : 60.0, #20 hp per heart, 5 per fraction
 	"health" : 1.0, # min 60 max 400
 	"max_money" : 999,
 	"money" : 0,
