@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8vojqk7unuc2"
-path="res://.godot/imported/wyrm_red_scales.png-3eea51d0d076e9dad0e33ab8c4d15fe4.ctex"
+uid="uid://d1003wwkodq5x"
+path="res://.godot/imported/32x32_ortho_dungeon_tile_Denzi111112-2.png-6f4db944458433e6d69662606a497c87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpj/wyrm_red_scales.png"
-dest_files=["res://.godot/imported/wyrm_red_scales.png-3eea51d0d076e9dad0e33ab8c4d15fe4.ctex"]
+source_file="res://fpjfold/fpjsprites/DENZI_CC0/32x32_ortho_dungeon_tile_Denzi111112-2.png"
+dest_files=["res://.godot/imported/32x32_ortho_dungeon_tile_Denzi111112-2.png-6f4db944458433e6d69662606a497c87.ctex"]
 
 [params]
 

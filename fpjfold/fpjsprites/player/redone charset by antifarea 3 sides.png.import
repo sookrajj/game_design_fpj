@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bou4ik14iuo4i"
-path="res://.godot/imported/wyrm_purple_scales.png-cd5d7fd78535368e25b90c9d5e2dbe00.ctex"
+uid="uid://dx2pmmhgko5pw"
+path="res://.godot/imported/redone charset by antifarea 3 sides.png-9569f37e78453c76e6cb67def82844e5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpj/wyrm_purple_scales.png"
-dest_files=["res://.godot/imported/wyrm_purple_scales.png-cd5d7fd78535368e25b90c9d5e2dbe00.ctex"]
+source_file="res://fpjfold/fpjsprites/player/redone charset by antifarea 3 sides.png"
+dest_files=["res://.godot/imported/redone charset by antifarea 3 sides.png-9569f37e78453c76e6cb67def82844e5.ctex"]
 
 [params]
 

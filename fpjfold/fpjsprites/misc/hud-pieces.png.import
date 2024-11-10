@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq5og10c86c5i"
-path="res://.godot/imported/wyrm.png-96a8018488ac7756cd7361d0e14259fa.ctex"
+uid="uid://cicbfdjfjptp7"
+path="res://.godot/imported/hud-pieces.png-d059ce325d1460c54a30886dffc5df0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpj/wyrm.png"
-dest_files=["res://.godot/imported/wyrm.png-96a8018488ac7756cd7361d0e14259fa.ctex"]
+source_file="res://fpjfold/fpjsprites/misc/hud-pieces.png"
+dest_files=["res://.godot/imported/hud-pieces.png-d059ce325d1460c54a30886dffc5df0b.ctex"]
 
 [params]
 

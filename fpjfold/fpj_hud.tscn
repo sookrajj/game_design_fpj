@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://1mobpdtgslyq"]
+
+[ext_resource type="Script" path="res://fpjfold/fpj_hud.gd" id="1_s62ag"]
+
+[node name="fpj_hud" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_s62ag")
+
+[node name="Health" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_right = 233.0
+offset_bottom = 43.0
+
+[node name="SP" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1.0
+offset_top = 44.0
+offset_right = 232.0
+offset_bottom = 84.0
+
+[node name="Money" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 66.0
+offset_right = 232.0
+offset_bottom = 106.0

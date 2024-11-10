@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b56y61yh78olb"
-path="res://.godot/imported/midi-bn.png-a69663956dcf7cd58ae8a77dbc09cc8e.ctex"
+uid="uid://ddjtue2u2kjkf"
+path="res://.godot/imported/32x32_ortho_deep_dwarves_Denzi120915-3.png-8914e2b0cd8f3df6ca7bb8a4323c3fb6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpj/midi-bn.png"
-dest_files=["res://.godot/imported/midi-bn.png-a69663956dcf7cd58ae8a77dbc09cc8e.ctex"]
+source_file="res://fpjfold/fpjsprites/DENZI_CC0/32x32_ortho_deep_dwarves_Denzi120915-3.png"
+dest_files=["res://.godot/imported/32x32_ortho_deep_dwarves_Denzi120915-3.png-8914e2b0cd8f3df6ca7bb8a4323c3fb6.ctex"]
 
 [params]
 

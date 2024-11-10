@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7ykja565gf7v"
-path="res://.godot/imported/wyrm_blue_scales.png-67ecff9987bbe65533df5819e19f9ce1.ctex"
+uid="uid://bytvy7ki3blk8"
+path="res://.godot/imported/48x32_ortho_pandemonium_demon_Denzi111113-3.png-f55fc0cc7ab8c37ed8665a6c7e9df9d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fpjfold/fpj/wyrm_blue_scales.png"
-dest_files=["res://.godot/imported/wyrm_blue_scales.png-67ecff9987bbe65533df5819e19f9ce1.ctex"]
+source_file="res://fpjfold/fpjsprites/DENZI_CC0/48x32_ortho_pandemonium_demon_Denzi111113-3.png"
+dest_files=["res://.godot/imported/48x32_ortho_pandemonium_demon_Denzi111113-3.png-f55fc0cc7ab8c37ed8665a6c7e9df9d1.ctex"]
 
 [params]
 
