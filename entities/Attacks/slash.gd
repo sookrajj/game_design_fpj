@@ -14,6 +14,6 @@ func _process(delta: float) -> void:
 		if self.overlaps_body(enemy):
 			enemy.take_damage(damage, self)
 			var dist = (enemy.global_position-self.global_position)
-			enemy.inertia = dist.normalize() * knockback
+			enemy.inertia = dist.normalized() * knockback
 	
 	pass

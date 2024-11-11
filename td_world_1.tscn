@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cfqeppxef1x07"]
+[gd_scene load_steps=6 format=4 uid="uid://cfqeppxef1x07"]
 
 [ext_resource type="TileSet" uid="uid://cweje8ab1gtie" path="res://assests/td_world_1_tileset.tres" id="1_uctmr"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_xejw5"]
 [ext_resource type="PackedScene" uid="uid://c0l5xu3yuh8su" path="res://entities/items/mini_heart.tscn" id="3_27rj0"]
 [ext_resource type="PackedScene" uid="uid://nyol2wqi7px5" path="res://entities/items/coin.tscn" id="4_nio7m"]
+[ext_resource type="PackedScene" uid="uid://c21ixv5hqm2nm" path="res://td_enemy.tscn" id="5_s226t"]
 
 [node name="td_world1" type="Node2D"]
 
@@ -51,3 +52,12 @@ position = Vector2(45, 42)
 
 [node name="coin8" parent="." instance=ExtResource("4_nio7m")]
 position = Vector2(41, 69)
+
+[node name="td_enemy" parent="." instance=ExtResource("5_s226t")]
+position = Vector2(-160, 13)
+
+[node name="td_enemy2" parent="." instance=ExtResource("5_s226t")]
+position = Vector2(292, -89)
+
+[node name="td_enemy3" parent="." instance=ExtResource("5_s226t")]
+position = Vector2(-105, -110)
