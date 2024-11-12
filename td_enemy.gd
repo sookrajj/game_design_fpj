@@ -52,12 +52,24 @@ signal recovered
 @onready var anim_player = $AnimatedSprite2D
 
 func turn_toward_player(location: Vector2):
-	pass
+	#set state to move toward player
+	var dir_to_player = (location- self.global_position).normalized()
+	velocity = dir_to_player * (SPEED * 2)
+	#determine animation play
+	var min_angle = INF
+	var close_state = STATES.IDLE
+	for i in range(1, 5):
+		var state_dir = statedirs[i]
+		var angle_dif = abs(state_dir.angle_to(dir_to_player))
+		if angle_dif < min_angle:
+			min_angle = angle_dif
+			close_state = STATES.values()[i]
+	AI_STATE = close_state
 
 
 func take_damage(dmg, attacker = null):
 	if damage_lock == 0.0:
-		#AI_STATE = STATES.DAMAGED
+		AI_STATE = STATES.DAMAGED
 		health -= dmg
 		damage_lock = 0.2
 		animation_lock = 0.2
@@ -68,8 +80,9 @@ func take_damage(dmg, attacker = null):
 			queue_free()
 		else:
 			if attacker != null:
+				var atta_pos = attacker.global_position
 				await recovered
-				turn_toward_player(attacker.global_position)
+				turn_toward_player(atta_pos)
 	pass
 
 
@@ -82,8 +95,24 @@ func _physics_process(delta: float) -> void:
 		rcL.target_position = raydir.rotated(deg_to_rad(-45)).normalized() * vision_distance
 		rcR.target_position = raydir.rotated(deg_to_rad(45)).normalized() * vision_distance
 	if animation_lock == 0.0:
-		#TODO recover from damage
-		#TODO damage player
+		if AI_STATE == STATES.DAMAGED:
+			#TODO reset shader
+			AI_STATE = STATES.IDLE
+			recovered.emit()
+		for player in get_tree().get_nodes_in_group("Player"):
+			if $attack_box.overlaps_body(player):
+				if player.damage_lock == 0.0:
+					var inertia = abs(player.global_position - self.global_position)
+					player.inertia = (inertia.normalized() * Vector2(1, 1)) * knockback
+					player.take_damage(damage)
+				else:
+					continue
+			if player.data.state != player.STATES.DEAD:
+				if (rcM.is_colliding() and rcM.get_collider() == player) or \
+				   (rcL.is_colliding() and rcL.get_collider() == player) or \
+				   (rcR.is_colliding() and rcR.get_collider() == player):
+					turn_toward_player(player.global_position)
+			pass
 		
 		ai_timer = clamp(ai_timer - delta, 0.0, ai_timer_max)
 		if ai_timer == 0.0:

@@ -368,10 +368,10 @@ animations = [{
 radius = 8.0
 height = 22.0
 
-[node name="td_player" type="CharacterBody2D"]
+[node name="td_player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_awx54")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Player"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2gc0p")
 animation = &"walk_down"
 autoplay = "idle_down"

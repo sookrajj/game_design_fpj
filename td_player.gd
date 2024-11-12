@@ -7,7 +7,7 @@ enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
 	"max_health" : 60.0, #20 hp per heart, 5 per fraction
-	"health" : 1.0, # min 60 max 400
+	"health" : 45.0, # min 60 max 400
 	"max_money" : 999,
 	"money" : 0,
 	"state" : STATES.IDLE,
@@ -66,7 +66,7 @@ signal health_depleted
 
 func take_damage(damage):
 	if damage_lock == 0.0:
-		data.health -= damage_lock
+		data.health -= damage
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5
 		animation_lock = damage * 0.005
