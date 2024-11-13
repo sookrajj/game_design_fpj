@@ -42,7 +42,7 @@ var animation_lock = 0.0
 var damage_lock = 0.0
 var knockback = 128.0
 var vision_distance = 50.0
-var money_value = 5.0
+var money_value = 5
 
 signal recovered
 
@@ -50,6 +50,33 @@ signal recovered
 @onready var rcM = $midray
 @onready var rcL = $bottomray
 @onready var anim_player = $AnimatedSprite2D
+
+var drops = ["drop_coin", "drop_heart"]
+var coin_sc = preload("res://entities/items/coin.tscn")
+var heart_sc = preload("res://entities/items/mini_heart.tscn")
+var shader = preload("res://assests/shaders/take_damage.tres")
+
+func vec2_offset():
+	return Vector2(randf_range(-128.0, 128.0), randf_range(-128.0, 128.0))
+
+func drop_scene(item_scene):
+	item_scene.global_position = self.global_position + vec2_offset()
+	get_tree().current_scene.add_child(item_scene)
+
+func drop_heart():
+	drop_scene(heart_sc.instantiate())
+
+func drop_coin():
+	var coin = coin_sc.instantiate()
+	#coin.value = self.money_value
+	coin.value = int(round(randi() * 20))
+	drop_scene(coin)
+
+func drop_items():
+	var num = randi() % 3 + 1
+	for i in range(10000):
+		var ran = drops[randi() % drops.size()]
+		call_deferred(ran)
 
 func turn_toward_player(location: Vector2):
 	#set state to move toward player
@@ -73,9 +100,11 @@ func take_damage(dmg, attacker = null):
 		health -= dmg
 		damage_lock = 0.2
 		animation_lock = 0.2
-		#TODO damage shader
+		var damage_intensity = clamp(1.0 - ((health + 0.01)/ max_health), 0.1, 0.8)
+		$AnimatedSprite2D.material = shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", damage_intensity)
 		if health <= 0:
-			#TODO drop item
+			drop_items()
 			#TODO sound
 			queue_free()
 		else:
@@ -96,7 +125,7 @@ func _physics_process(delta: float) -> void:
 		rcR.target_position = raydir.rotated(deg_to_rad(45)).normalized() * vision_distance
 	if animation_lock == 0.0:
 		if AI_STATE == STATES.DAMAGED:
-			#TODO reset shader
+			$AnimatedSprite2D.material = null
 			AI_STATE = STATES.IDLE
 			recovered.emit()
 		for player in get_tree().get_nodes_in_group("Player"):
