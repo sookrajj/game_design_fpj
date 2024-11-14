@@ -23,8 +23,16 @@ var charge_time = 2.5
 var charge_start = 0.0
 
 var slash_scene = preload("res://entities/Attacks/slash.tscn")
+var damage_shader = preload("res://assests/shaders/take_damage.tres")
+var attack_sound = preload("res://assests/sounds/slash.wav")
+var coin_sound = preload("res://assests/sounds/pcoin.wav")
+var heart_sound = preload("res://assests/sounds/pheart.wav")
+var death_sound = preload("res://assests/sounds/pdeath.wav")
+var hurt_sound = preload("res://assests/sounds/phurt.wav")
+var hit_sound = preload("res://assests/sounds/phit.wav")
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
+@onready var aud = $AudioStreamPlayer2D
 
 func get_direction_name():
 	return ["right", "down", "left", "up"][
@@ -42,6 +50,8 @@ func attack():
 	slash.position = attack_dir * 20.0
 	slash.rotation = Vector2().angle_to_point(-attack_dir)
 	add_child(slash)
+	aud.stream = attack_sound
+	aud.play()
 	animation_lock = 0.2
 
 func charged_attack():
@@ -57,6 +67,8 @@ func charged_attack():
 		ns.rotation = Vector2().angle_to_point(-dir)
 		ns.damage *= 1.5
 		add_child(ns)
+		aud.stream = hit_sound
+		aud.play()
 		await get_tree().create_timer(0.03).timeout
 	animation_lock = 0.2
 	await $AnimatedSprite2D.animation_finished
@@ -70,13 +82,16 @@ func take_damage(damage):
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5
 		animation_lock = damage * 0.005
-		
+		$AnimatedSprite2D.material = damage_shader.duplicate()
+		$AnimatedSprite2D.material.set_shader_parameter("intensity", 0.5)
 		if data.health > 0:
-			#TODO play death sound
+			aud.stream = hurt_sound
+			aud.play()
 			pass
 		else:
 			data.state = STATES.DEAD
-			#TODO play death anim and sound
+			aud.stream = death_sound
+			aud.play()
 			await get_tree().create_timer(0.5).timeout
 			health_depleted.emit()
 	
@@ -89,10 +104,14 @@ func _ready() -> void:
 func pickup_health(value):
 	data.health += value
 	data.health = clamp(data.health, 0, data.max_health)
+	aud.stream = heart_sound
+	aud.play()
 
 func pickup_money(value):
 	data.money += value
 	data.money = clamp(data.money, 0, data.max_money)
+	aud.stream = coin_sound
+	aud.play()
 	p_HUD.add_money(value)
 
 
@@ -101,6 +120,9 @@ func _physics_process(delta: float) -> void:
 	damage_lock = max(damage_lock-delta, 0.0)
 	
 	if animation_lock == 0 and data.state != STATES.DEAD:
+		if data.state != STATES.DAMAGED and max(damage_lock-delta, 0.0):
+			$AnimatedSprite2D.material = null;
+		
 		if data.state != STATES.CHARGING:
 			data.state = STATES.IDLE
 		

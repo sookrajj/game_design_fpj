@@ -387,3 +387,5 @@ shape = SubResource("CapsuleShape2D_s3q0t")
 
 [node name="player_hud" parent="." instance=ExtResource("4_37g8o")]
 visible = false
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

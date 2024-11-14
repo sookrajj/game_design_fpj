@@ -50,14 +50,16 @@ signal recovered
 @onready var rcM = $midray
 @onready var rcL = $bottomray
 @onready var anim_player = $AnimatedSprite2D
+@onready var audio_player = $AudioStreamPlayer2D
 
 var drops = ["drop_coin", "drop_heart"]
 var coin_sc = preload("res://entities/items/coin.tscn")
 var heart_sc = preload("res://entities/items/mini_heart.tscn")
 var shader = preload("res://assests/shaders/take_damage.tres")
+var death_sound = preload("res://assests/sounds/enemydeath.wav")
 
 func vec2_offset():
-	return Vector2(randf_range(-128.0, 128.0), randf_range(-128.0, 128.0))
+	return Vector2(randf_range(-10.0, 10.0), randf_range(-10.0, 10.0))
 
 func drop_scene(item_scene):
 	item_scene.global_position = self.global_position + vec2_offset()
@@ -69,12 +71,12 @@ func drop_heart():
 func drop_coin():
 	var coin = coin_sc.instantiate()
 	#coin.value = self.money_value
-	coin.value = int(round(randi() * 20))
+	coin.value = int(10)
 	drop_scene(coin)
 
 func drop_items():
 	var num = randi() % 3 + 1
-	for i in range(10000):
+	for i in range(10):
 		var ran = drops[randi() % drops.size()]
 		call_deferred(ran)
 
@@ -105,7 +107,9 @@ func take_damage(dmg, attacker = null):
 		$AnimatedSprite2D.material.set_shader_parameter("intensity", damage_intensity)
 		if health <= 0:
 			drop_items()
-			#TODO sound
+			audio_player.stream = death_sound
+			audio_player.play()
+			await audio_player.finished
 			queue_free()
 		else:
 			if attacker != null:

@@ -1,7 +1,7 @@
 extends BaseItem
 
 func _init():
-	super._init(int(round(randi() * 20)))
+	super._init()
 
 func interact(player):
 	player.pickup_money(value)
