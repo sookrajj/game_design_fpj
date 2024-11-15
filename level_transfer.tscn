@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://level_transfer.gd" id="1_581kr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ypnki"]
-size = Vector2(28, 52)
+size = Vector2(19, 22)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ygpfk"]
 
@@ -14,6 +14,7 @@ script = ExtResource("1_581kr")
 shape = SubResource("RectangleShape2D_ypnki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-14, -26)
 scale = Vector2(28, 52)
 texture = SubResource("PlaceholderTexture2D_ygpfk")
 

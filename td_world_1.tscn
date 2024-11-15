@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cfqeppxef1x07"]
+[gd_scene load_steps=11 format=4 uid="uid://cfqeppxef1x07"]
 
 [ext_resource type="TileSet" uid="uid://cweje8ab1gtie" path="res://assests/td_world_1_tileset.tres" id="1_uctmr"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_xejw5"]
@@ -6,6 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://nyol2wqi7px5" path="res://entities/items/coin.tscn" id="4_nio7m"]
 [ext_resource type="PackedScene" uid="uid://c21ixv5hqm2nm" path="res://td_enemy.tscn" id="5_s226t"]
 [ext_resource type="AudioStream" uid="uid://c3fuwwfbgsvdd" path="res://assests/sounds/overworld.mp3" id="6_nyexa"]
+[ext_resource type="Script" path="res://level_transfer.gd" id="7_uh6ko"]
+[ext_resource type="PackedScene" uid="uid://chwbbdpfwlbel" path="res://entities/items/heart_container.tscn" id="8_lqeq1"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ygpfk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gm7xx"]
+size = Vector2(41, 35)
 
 [node name="td_world1" type="Node2D"]
 
@@ -67,3 +74,23 @@ position = Vector2(-105, -110)
 stream = ExtResource("6_nyexa")
 volume_db = -10.0
 autoplay = true
+
+[node name="heart_container" parent="." instance=ExtResource("8_lqeq1")]
+position = Vector2(104, 24)
+
+[node name="level_transfer" type="Area2D" parent="."]
+position = Vector2(17, -169)
+script = ExtResource("7_uh6ko")
+next_level = "td_world_2"
+
+[node name="Sprite2D" type="Sprite2D" parent="level_transfer"]
+visible = false
+position = Vector2(-14, -26)
+scale = Vector2(28, 52)
+texture = SubResource("PlaceholderTexture2D_ygpfk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_transfer"]
+position = Vector2(1.5, 4.5)
+shape = SubResource("RectangleShape2D_gm7xx")
+
+[connection signal="body_entered" from="level_transfer" to="level_transfer" method="_on_body_entered"]

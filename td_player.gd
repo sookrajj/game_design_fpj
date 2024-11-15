@@ -114,6 +114,11 @@ func pickup_money(value):
 	aud.play()
 	p_HUD.add_money(value)
 
+func pickup_container():
+	data.max_health = clamp(data.max_health + 20.0, 0, MAX_OBTAINABLE_HEALTH)
+	data.health += data.max_health
+	data.health = clamp(data.health, 0, data.max_health)
+	p_HUD.draw_hearts()
 
 func _physics_process(delta: float) -> void:
 	animation_lock = max(animation_lock - delta, 0.0)
@@ -150,6 +155,9 @@ func _physics_process(delta: float) -> void:
 			data.state = STATES.CHARGING
 		
 		charge_start += delta
+		if (charge_start >= charge_time):
+			aud.stream = coin_sound
+			aud.play()
 		if Input.is_action_just_released("ui_accept"):
 			if charge_start >= charge_time and data.state == STATES.CHARGING:
 				charged_attack()
