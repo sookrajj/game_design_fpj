@@ -159,6 +159,11 @@ func _physics_process(delta: float) -> void:
 			aud.stream = coin_sound
 			aud.play()
 		if Input.is_action_just_released("ui_accept"):
+			for entity in get_tree().get_nodes_in_group("Interactable"):
+				if entity.in_range(self):
+					entity.interact(self)
+					data.state = STATES.IDLE
+					return
 			if charge_start >= charge_time and data.state == STATES.CHARGING:
 				charged_attack()
 			else:

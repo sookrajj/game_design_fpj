@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cfqeppxef1x07"]
+[gd_scene load_steps=12 format=4 uid="uid://cfqeppxef1x07"]
 
 [ext_resource type="TileSet" uid="uid://cweje8ab1gtie" path="res://assests/td_world_1_tileset.tres" id="1_uctmr"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_xejw5"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://c3fuwwfbgsvdd" path="res://assests/sounds/overworld.mp3" id="6_nyexa"]
 [ext_resource type="Script" path="res://level_transfer.gd" id="7_uh6ko"]
 [ext_resource type="PackedScene" uid="uid://chwbbdpfwlbel" path="res://entities/items/heart_container.tscn" id="8_lqeq1"]
+[ext_resource type="PackedScene" uid="uid://dgrc84q3b4m2r" path="res://entities/objects/SmallChest.tscn" id="9_5j62f"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ygpfk"]
 
@@ -92,5 +93,16 @@ texture = SubResource("PlaceholderTexture2D_ygpfk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_transfer"]
 position = Vector2(1.5, 4.5)
 shape = SubResource("RectangleShape2D_gm7xx")
+
+[node name="SmallChest" parent="." instance=ExtResource("9_5j62f")]
+position = Vector2(291, 52)
+contents = {
+"coin": 100000000000000000,
+"coin30": 40,
+"mini_heart20": 1000000000
+}
+
+[node name="SmallChest2" parent="." instance=ExtResource("9_5j62f")]
+position = Vector2(-223, -107)
 
 [connection signal="body_entered" from="level_transfer" to="level_transfer" method="_on_body_entered"]
