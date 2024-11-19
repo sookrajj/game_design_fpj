@@ -189,6 +189,8 @@ position = Vector2(203, 180)
 position = Vector2(282, 275)
 script = ExtResource("4_re625")
 next_level = "td_world_1"
+coorx = 1
+coory = -8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_transfer"]
 position = Vector2(-2.5, -11)

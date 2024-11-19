@@ -94,15 +94,21 @@ texture = SubResource("PlaceholderTexture2D_ygpfk")
 position = Vector2(1.5, 4.5)
 shape = SubResource("RectangleShape2D_gm7xx")
 
-[node name="SmallChest" parent="." instance=ExtResource("9_5j62f")]
-position = Vector2(291, 52)
-contents = {
-"coin": 100000000000000000,
-"coin30": 40,
-"mini_heart20": 1000000000
-}
-
 [node name="SmallChest2" parent="." instance=ExtResource("9_5j62f")]
 position = Vector2(-223, -107)
+contents = {
+"coin": 1000000,
+"coin0": 131212121
+}
+
+[node name="SmallChest3" parent="." instance=ExtResource("9_5j62f")]
+position = Vector2(291, 45)
+contents = {
+"coin": 10,
+"coin0": 10,
+"coin1": 10,
+"coin2": 10,
+"coin3": 10
+}
 
 [connection signal="body_entered" from="level_transfer" to="level_transfer" method="_on_body_entered"]
