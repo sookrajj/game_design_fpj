@@ -11,11 +11,18 @@ func _on_body_entered(body: Node2D) -> void:
 		else:
 			var level = "res://" + next_level + ".tscn"
 			var plar = body.data
-			
-			#get_tree().change_scene_to_file(level)
+			var timer = get_tree().create_timer(10)
+			#var ns = load(level)
 			get_tree().change_scene_to_file(level)
 			#for player in get_tree().get_nodes_in_group("Player"):
 				#if player != null:
-			var player = get_tree().get_first_node_in_group("Player")
-			player.data.max_health = plar.max_health
-					#player.global_position = player.global_position + Vector2(coorx, coory)
+			#print(str(ns), "  ", str(get_tree()))
+			print(str(timer))
+			await timer.timeout
+			print(str(get_tree()))
+			if get_tree() != null:
+				print("hi")
+			#var playe = get_tree().get_instance_id()
+			#print(str(playe))
+			#playe.data = plar
+			#playe.global_position = playe.global_position + Vector2(coorx, coory)
