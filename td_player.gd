@@ -102,16 +102,18 @@ func _ready() -> void:
 	p_HUD.show()
 
 func pickup_health(value):
+	#aud.stream = heart_sound
+	#aud.play()
 	data.health += value
 	data.health = clamp(data.health, 0, data.max_health)
-	aud.stream = heart_sound
-	aud.play()
+	
 
 func pickup_money(value):
+	#aud.stream = coin_sound
+	#aud.play()
 	data.money += value
 	data.money = clamp(data.money, 0, data.max_money)
-	aud.stream = coin_sound
-	aud.play()
+	
 	p_HUD.add_money(value)
 
 func pickup_container():
@@ -155,8 +157,9 @@ func _physics_process(delta: float) -> void:
 			data.state = STATES.CHARGING
 		
 		charge_start += delta
-		if (charge_start >= charge_time):
-			aud.stream = coin_sound
+		if (charge_start >= charge_time && data.state == STATES.CHARGING):
+			aud.stream = attack_sound
+			aud.pitch_scale *= 1.1
 			aud.play()
 		if Input.is_action_just_released("ui_accept"):
 			for entity in get_tree().get_nodes_in_group("Interactable"):
@@ -165,7 +168,9 @@ func _physics_process(delta: float) -> void:
 					data.state = STATES.IDLE
 					return
 			if charge_start >= charge_time and data.state == STATES.CHARGING:
+				aud.pitch_scale = 1
 				charged_attack()
+				
 			else:
 				data.state = STATES.IDLE
 	if Input.is_action_just_pressed("ui_cancel"):

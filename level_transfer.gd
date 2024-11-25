@@ -4,7 +4,6 @@ extends Area2D
 @export var coorx = 0
 @export var coory = 0
 
-signal lod
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -15,7 +14,6 @@ func _on_body_entered(body: Node2D) -> void:
 			var plar = body.data
 			#var ns = load(level)
 			get_tree().change_scene_to_file(level)
-			await lod
 			if get_tree() != null:
 				print("hi")
 			
