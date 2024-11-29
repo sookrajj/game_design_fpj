@@ -34,7 +34,7 @@ tile_set = ExtResource("1_uctmr")
 [node name="td_player" parent="." instance=ExtResource("2_xejw5")]
 position = Vector2(16, 17)
 
-[node name="miniHeart" parent="." instance=ExtResource("3_27rj0")]
+[node name="miniHeart4" parent="." instance=ExtResource("3_27rj0")]
 position = Vector2(-143, -46)
 
 [node name="miniHeart2" parent="." instance=ExtResource("3_27rj0")]
@@ -43,7 +43,7 @@ position = Vector2(204, -43)
 [node name="miniHeart3" parent="." instance=ExtResource("3_27rj0")]
 position = Vector2(22, 84)
 
-[node name="coin" parent="." instance=ExtResource("4_nio7m")]
+[node name="coin13" parent="." instance=ExtResource("4_nio7m")]
 position = Vector2(-9, 83)
 
 [node name="coin2" parent="." instance=ExtResource("4_nio7m")]
@@ -81,7 +81,7 @@ stream = ExtResource("6_nyexa")
 volume_db = -10.0
 autoplay = true
 
-[node name="heart_container" parent="." instance=ExtResource("8_lqeq1")]
+[node name="heart_container3" parent="." instance=ExtResource("8_lqeq1")]
 position = Vector2(104, 24)
 
 [node name="level_transfer" type="Area2D" parent="."]

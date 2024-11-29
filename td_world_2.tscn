@@ -184,13 +184,13 @@ tile_set = SubResource("TileSet_58o1c")
 [node name="td_player" parent="." instance=ExtResource("2_wgory")]
 position = Vector2(282, 240)
 
-[node name="td_enemy" parent="." instance=ExtResource("4_l3b0k")]
+[node name="td_enemy8" parent="." instance=ExtResource("4_l3b0k")]
 position = Vector2(103, 162)
 
-[node name="td_enemy2" parent="." instance=ExtResource("4_l3b0k")]
+[node name="td_enemy9" parent="." instance=ExtResource("4_l3b0k")]
 position = Vector2(458, 98)
 
-[node name="td_enemy3" parent="." instance=ExtResource("4_l3b0k")]
+[node name="td_enemy10" parent="." instance=ExtResource("4_l3b0k")]
 position = Vector2(456, 218)
 
 [node name="td_enemy4" parent="." instance=ExtResource("4_l3b0k")]

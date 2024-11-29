@@ -8,7 +8,7 @@ enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 @export var data = {
 	"max_health" : 60.0, #20 hp per heart, 5 per fraction
 	"health" : 45.0, # min 60 max 400
-	"max_money" : 999,
+	"max_money" : 9999,
 	"money" : 0,
 	"state" : STATES.IDLE,
 	"secondaries" : [],
@@ -92,13 +92,13 @@ func take_damage(damage):
 			data.state = STATES.DEAD
 			aud.stream = death_sound
 			aud.play()
+			self.rotation = PI/2
 			await get_tree().create_timer(0.5).timeout
 			health_depleted.emit()
+			
 	
 	pass
 
-func try(cor: Vector2):
-	self.global_position += cor
 
 func _ready() -> void:
 	self.global_position += Test.get_cords()
@@ -106,7 +106,7 @@ func _ready() -> void:
 		self.data = Test.get_data()
 	p_HUD.show()
 	p_HUD.draw_hearts()
-	pickup_money(data.money)
+	setup_money(data.money)
 
 func pickup_health(value):
 	#aud.stream = heart_sound
@@ -118,10 +118,13 @@ func pickup_health(value):
 func pickup_money(value):
 	#aud.stream = coin_sound
 	#aud.play()
-	if value != data.money or value == 1:
+	if value >= 1:
 		data.money += value
 		data.money = clamp(data.money, 0, data.max_money)
-	p_HUD.add_money(value)
+	p_HUD.add_money(data.money)
+
+func setup_money(value):
+	p_HUD.add_money(data.money)
 
 func pickup_container():
 	data.max_health = clamp(data.max_health + 20.0, 0, MAX_OBTAINABLE_HEALTH)

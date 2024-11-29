@@ -165,31 +165,31 @@ tile_set = SubResource("TileSet_58o1c")
 [node name="td_player" parent="." instance=ExtResource("2_vg0nf")]
 position = Vector2(271, 257)
 
-[node name="td_enemy" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy17" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(103, 162)
 
-[node name="td_enemy2" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy18" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(458, 98)
 
-[node name="td_enemy3" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy19" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(456, 218)
 
-[node name="td_enemy4" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy20" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(204, 87)
 
-[node name="td_enemy6" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy21" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(90, 66)
 
-[node name="td_enemy7" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy22" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(229, 55)
 
-[node name="td_enemy8" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy23" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(357, 61)
 
-[node name="td_enemy9" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy24" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(294, 100)
 
-[node name="td_enemy10" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy25" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(344, 129)
 
 [node name="td_enemy11" parent="." instance=ExtResource("3_i2rpe")]
@@ -210,7 +210,7 @@ position = Vector2(537, 241)
 [node name="td_enemy16" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(519, 70)
 
-[node name="td_enemy5" parent="." instance=ExtResource("3_i2rpe")]
+[node name="td_enemy26" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(154, 219)
 
 [node name="level_transfer" type="Area2D" parent="."]
@@ -229,7 +229,7 @@ texture = SubResource("PlaceholderTexture2D_rafgd")
 position = Vector2(272.25, 308.5)
 shape = SubResource("RectangleShape2D_qp1q8")
 
-[node name="SmallChest3" parent="." instance=ExtResource("5_fhb0p")]
+[node name="SmallChest13" parent="." instance=ExtResource("5_fhb0p")]
 position = Vector2(26, 28)
 contents = {
 "coin": 10,
@@ -239,7 +239,7 @@ contents = {
 "coin3": 10
 }
 
-[node name="SmallChest4" parent="." instance=ExtResource("5_fhb0p")]
+[node name="SmallChest14" parent="." instance=ExtResource("5_fhb0p")]
 position = Vector2(85, 26)
 contents = {
 "coin": 10,
@@ -249,7 +249,7 @@ contents = {
 "coin3": 10
 }
 
-[node name="SmallChest5" parent="." instance=ExtResource("5_fhb0p")]
+[node name="SmallChest12" parent="." instance=ExtResource("5_fhb0p")]
 position = Vector2(161, 26)
 contents = {
 "coin": 10,

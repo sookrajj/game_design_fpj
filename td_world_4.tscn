@@ -33,16 +33,16 @@ tile_set = ExtResource("1_sguqa")
 [node name="td_player" parent="." instance=ExtResource("2_1kb5v")]
 position = Vector2(15, 181)
 
-[node name="coin" parent="." instance=ExtResource("4_y44xu")]
+[node name="coin9" parent="." instance=ExtResource("4_y44xu")]
 position = Vector2(-7, 288)
 
-[node name="coin2" parent="." instance=ExtResource("4_y44xu")]
+[node name="coin10" parent="." instance=ExtResource("4_y44xu")]
 position = Vector2(9, 286)
 
-[node name="coin3" parent="." instance=ExtResource("4_y44xu")]
+[node name="coin11" parent="." instance=ExtResource("4_y44xu")]
 position = Vector2(26, 289)
 
-[node name="coin8" parent="." instance=ExtResource("4_y44xu")]
+[node name="coin12" parent="." instance=ExtResource("4_y44xu")]
 position = Vector2(46, 292)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -50,7 +50,7 @@ stream = ExtResource("6_ea427")
 volume_db = -10.0
 autoplay = true
 
-[node name="heart_container" parent="." instance=ExtResource("7_htmbr")]
+[node name="heart_container2" parent="." instance=ExtResource("7_htmbr")]
 position = Vector2(319, 366)
 
 [node name="level_transfer" type="Area2D" parent="."]
@@ -69,14 +69,14 @@ texture = SubResource("PlaceholderTexture2D_ygpfk")
 position = Vector2(0.5, 301)
 shape = SubResource("RectangleShape2D_gm7xx")
 
-[node name="SmallChest2" parent="." instance=ExtResource("9_lbs6n")]
+[node name="SmallChest4" parent="." instance=ExtResource("9_lbs6n")]
 position = Vector2(-181, 335)
 contents = {
 "coin": 1000000,
 "coin0": 131212121
 }
 
-[node name="SmallChest3" parent="." instance=ExtResource("9_lbs6n")]
+[node name="SmallChest5" parent="." instance=ExtResource("9_lbs6n")]
 position = Vector2(-290, 498)
 contents = {
 "coin": 10,

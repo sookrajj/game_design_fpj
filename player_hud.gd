@@ -8,12 +8,14 @@ const HEART_ROW_SIZE = 10
 const HEART_OFFSET = 16
 
 func add_money(value):
-	if int(coins.text) + value < 10:
-		coins.text = "00" + str(int(coins.text) + value)
-	elif int(coins.text) + value < 100:
-		coins.text = "0" + str(int(coins.text) + value)
-	else : 
-		coins.text = str(int(coins.text) + value)
+	if value < 10:
+		coins.text = "000" + str(value)
+	elif value < 100:
+		coins.text = "00" + str(value)
+	elif value < 1000 : 
+		coins.text = "0" + str(value)
+	else:
+		coins.text = str(value)
 
 func create_heart():
 	var newheart = Sprite2D.new()

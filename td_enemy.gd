@@ -110,6 +110,7 @@ func take_damage(dmg, attacker = null):
 			audio_player.stream = death_sound
 			audio_player.play()
 			await audio_player.finished
+			Test.collectstd[self.name] = true
 			queue_free()
 		else:
 			if attacker != null:
@@ -172,3 +173,8 @@ func _physics_process(delta: float) -> void:
 	
 
 	pass
+
+func _ready() -> void:
+	if Test.collectstd[self.name]:
+		queue_free()
+		Test.collectstd[self.name] = false

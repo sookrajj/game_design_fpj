@@ -10,7 +10,8 @@ func in_range(player) -> bool:
 
 
 func interact(player):
-	if not OPEN_STATE:
+	if not OPEN_STATE && !Test.collectstd[self.name]:
+		Test.collectstd[self.name] = true
 		open_chest(player)
 
 func open_chest(player):
@@ -47,6 +48,8 @@ func drop_item(item_name, value, player):
 
 func _ready():
 	regex.compile("[0-9]")
+	if Test.collectstd[self.name]:
+		$Sprite2D.frame = 1
 	pass
 
 
