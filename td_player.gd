@@ -97,9 +97,16 @@ func take_damage(damage):
 	
 	pass
 
+func try(cor: Vector2):
+	self.global_position += cor
 
 func _ready() -> void:
+	self.global_position += Test.get_cords()
+	if Test.data != {}:
+		self.data = Test.get_data()
 	p_HUD.show()
+	p_HUD.draw_hearts()
+	pickup_money(data.money)
 
 func pickup_health(value):
 	#aud.stream = heart_sound
@@ -111,9 +118,9 @@ func pickup_health(value):
 func pickup_money(value):
 	#aud.stream = coin_sound
 	#aud.play()
-	data.money += value
-	data.money = clamp(data.money, 0, data.max_money)
-	
+	if value != data.money or value == 1:
+		data.money += value
+		data.money = clamp(data.money, 0, data.max_money)
 	p_HUD.add_money(value)
 
 func pickup_container():

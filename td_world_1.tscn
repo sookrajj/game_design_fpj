@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c21ixv5hqm2nm" path="res://td_enemy.tscn" id="5_s226t"]
 [ext_resource type="AudioStream" uid="uid://c3fuwwfbgsvdd" path="res://assests/sounds/overworld.mp3" id="6_nyexa"]
 [ext_resource type="Script" path="res://level_transfer.gd" id="7_uh6ko"]
-[ext_resource type="PackedScene" uid="uid://chwbbdpfwlbel" path="res://entities/items/heart_container.tscn" id="8_lqeq1"]
+[ext_resource type="PackedScene" path="res://entities/items/heart_container.tscn" id="8_lqeq1"]
 [ext_resource type="PackedScene" uid="uid://dgrc84q3b4m2r" path="res://entities/objects/SmallChest.tscn" id="9_5j62f"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ygpfk"]

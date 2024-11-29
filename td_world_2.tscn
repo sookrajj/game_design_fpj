@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://grso6yud1i6m"]
+[gd_scene load_steps=12 format=4 uid="uid://b47xxrccmp0km"]
 
 [ext_resource type="Texture2D" uid="uid://dsjx5143fbtgy" path="res://assests/sprites/zelda_like/cave.png" id="1_dnp5d"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_wgory"]
@@ -209,8 +209,8 @@ position = Vector2(203, 180)
 position = Vector2(282, 275)
 script = ExtResource("4_re625")
 next_level = "td_world_1"
-coorx = 1
-coory = -8
+coorx = 4
+coory = -150
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="level_transfer"]
 position = Vector2(-2.5, -10.5)
