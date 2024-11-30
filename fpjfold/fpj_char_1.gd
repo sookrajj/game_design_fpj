@@ -5,12 +5,14 @@ const SPEED = 100.0
 enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
 
 @export var data = {
-	"max_health" : 60.0, #20 hp per heart, 5 per fraction
-	"health" : 1.0, # min 60 max 400
-	"max_money" : 999,
+	"max_health" : 100.0, #20 hp per heart, 5 per fraction
+	"health" : 100.0, # min 60 max 400
+	"max_sp" : 100.0,
+	"sp" : 100.0,
+	"max_money" : 9999,
 	"money" : 0,
 	"state" : STATES.IDLE,
-	"secondaries" : [],
+	"damage" : 10,
 }
 
 var inertia = Vector2()
@@ -21,9 +23,6 @@ var damage_lock = 0.0
 var charge_time = 2.5
 var charge_start = 0.0
 
-func pickup_health(value):
-	data.health += value
-	
 
 var slash_scene = preload("res://entities/Attacks/slash.tscn")
 
@@ -33,6 +32,33 @@ func get_direction_name():
 	return ["side", "down", "left", "up"][
 		int(round(look_direction.angle() * 2 / PI))%4
 	]
+
+func _ready() -> void:
+	if Fpjglob.data != {}:
+		self.data = Fpjglob.data
+	else:
+		Fpjglob.data = self.data
+	p_HUD.show()
+	p_HUD.draw_hearts()
+	setup_money(data.money)
+
+func pickup_health(value):
+	#aud.stream = heart_sound
+	#aud.play()
+	data.health += value
+	data.health = clamp(data.health, 0, data.max_health)
+	
+
+func pickup_money(value):
+	#aud.stream = coin_sound
+	#aud.play()
+	if value >= 1:
+		data.money += value
+		data.money = clamp(data.money, 0, data.max_money)
+	p_HUD.add_money(data.money)
+
+func setup_money(value):
+	p_HUD.add_money(data.money)
 
 func attack():
 	data.state = STATES.ATTACKING
