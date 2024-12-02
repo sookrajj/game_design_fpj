@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_1kb5v"]
 [ext_resource type="PackedScene" uid="uid://nyol2wqi7px5" path="res://entities/items/coin.tscn" id="4_y44xu"]
 [ext_resource type="AudioStream" uid="uid://c3fuwwfbgsvdd" path="res://assests/sounds/overworld.mp3" id="6_ea427"]
-[ext_resource type="PackedScene" path="res://entities/items/heart_container.tscn" id="7_htmbr"]
+[ext_resource type="PackedScene" uid="uid://chwbbdpfwlbel" path="res://entities/items/heart_container.tscn" id="7_htmbr"]
 [ext_resource type="Script" path="res://level_transfer.gd" id="8_36kap"]
 [ext_resource type="PackedScene" uid="uid://dgrc84q3b4m2r" path="res://entities/objects/SmallChest.tscn" id="9_lbs6n"]
 
