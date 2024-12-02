@@ -4,6 +4,7 @@ extends CharacterBody2D
 const SPEED = 125.0
 const MAX_OBTAINABLE_HEALTH = 400.0
 enum STATES {IDLE=0, DEAD, DAMAGED, ATTACKING, CHARGING}
+var num = 0
 
 @export var data = {
 	"max_health" : 60.0, #20 hp per heart, 5 per fraction
@@ -59,14 +60,16 @@ func charged_attack():
 	$AnimatedSprite2D.play("swipe_charge")
 	attack_dir = -look_direction
 	damage_lock = 0.3
-	for i in range(9):
+	for i in range(18):
 		var angle = attack_dir.angle() + (i-4) * PI/4
 		var dir = Vector2(cos(angle), sin(angle))
-		var ns = slash_scene.instantiate()
-		ns.position = dir * 20
-		ns.rotation = Vector2().angle_to_point(-dir)
-		ns.damage *= 1.5
-		add_child(ns)
+		for l in range(50):
+			var ns = slash_scene.instantiate()
+			dir = Vector2(cos(l*5), sin(l*5))/2
+			ns.position = dir * (10 + l)*2
+			ns.rotation = Vector2().angle_to_point(-dir)/2
+			ns.damage *= l
+			add_child(ns)
 		aud.stream = hit_sound
 		aud.play()
 		await get_tree().create_timer(0.03).timeout
@@ -77,7 +80,7 @@ func charged_attack():
 signal health_depleted
 
 func take_damage(damage):
-	if damage_lock == 0.0:
+	if damage_lock == 0.0 and data.state != STATES.DEAD:
 		data.health -= damage
 		data.state = STATES.DAMAGED
 		damage_lock = 0.5
@@ -92,7 +95,9 @@ func take_damage(damage):
 			data.state = STATES.DEAD
 			aud.stream = death_sound
 			aud.play()
-			self.rotation = PI/2
+			#self.rotation = PI/2
+			#for lcv in range(90):
+				#self.rotate(PI/2 - ((90-lcv)/180))
 			await get_tree().create_timer(0.5).timeout
 			health_depleted.emit()
 			
@@ -186,6 +191,15 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		$Camera2D/pause_menu.show()
 		get_tree().paused = true
+	if Input.is_action_just_pressed("bullet"):
+		charged_attack()
+	if data.state == STATES.DEAD:
+		num += 1
+		#beyblade for real
+		#if num <= 9000:
+			#self.rotate(PI/2 - ((PI*(90-num))/180))
+		if num <= 45:
+			self.rotate(PI/180 * 2)
 	pass
 
 func update_animation(direction):

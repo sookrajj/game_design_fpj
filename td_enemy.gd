@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 const SPEED = 60.0
 var max_health = 30.0
-var health = max_health
+@export var health = max_health
 var damage = 10.0
 var AI_STATE = STATES.IDLE
+
 enum STATES {
 	IDLE = 0, UP, DOWN, LEFT, RIGHT, UP_L, UP_R, DOWN_L, DOWN_R, DAMAGED
 }
