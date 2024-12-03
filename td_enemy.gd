@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 60.0
+var speed = 60.0
 var max_health = 30.0
 @export var health = max_health
+@export var size = self.scale
 var damage = 10.0
 var AI_STATE = STATES.IDLE
 
@@ -84,7 +85,7 @@ func drop_items():
 func turn_toward_player(location: Vector2):
 	#set state to move toward player
 	var dir_to_player = (location- self.global_position).normalized()
-	velocity = dir_to_player * (SPEED * 2)
+	velocity = dir_to_player * (speed * 2)
 	#determine animation play
 	var min_angle = INF
 	var close_state = STATES.IDLE
@@ -159,7 +160,7 @@ func _physics_process(delta: float) -> void:
 			ai_timer = ai_timer_max
 			
 		var direction = statedirs[int(AI_STATE)]
-		velocity = direction * SPEED
+		velocity = direction * speed
 		var animation = state_anims[int(AI_STATE)]
 		if animation and not anim_player.is_playing():
 			anim_player.play(animation)
@@ -176,6 +177,13 @@ func _physics_process(delta: float) -> void:
 	pass
 
 func _ready() -> void:
+	var t = randf() * 3
+	self.scale = Vector2(t, t)
+	# small = faster, stronger
+	#large = slower, tanker
+	self.speed = 250 - (t * (250/4))
+	self.health = 100 + t*(250/3)
+	self.damage = 20 - t* 3
 	if Test.collectstd[self.name]:
 		queue_free()
 		Test.collectstd[self.name] = false

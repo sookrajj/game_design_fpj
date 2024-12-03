@@ -212,6 +212,8 @@ position = Vector2(519, 70)
 
 [node name="td_enemy26" parent="." instance=ExtResource("3_i2rpe")]
 position = Vector2(154, 219)
+health = 100000.0
+size = Vector2(5, 5)
 
 [node name="level_transfer" type="Area2D" parent="."]
 script = ExtResource("4_cag0m")
