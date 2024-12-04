@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://k3fdvsbpq5q0"]
+[gd_scene load_steps=12 format=4 uid="uid://k3fdvsbpq5q0"]
 
 [ext_resource type="TileSet" uid="uid://cweje8ab1gtie" path="res://assests/td_world_1_tileset.tres" id="1_sguqa"]
 [ext_resource type="PackedScene" uid="uid://ncx4onnt73nm" path="res://td_player.tscn" id="2_1kb5v"]
@@ -12,6 +12,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gm7xx"]
 size = Vector2(75, 34)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rafgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k381s"]
+size = Vector2(18, 22)
 
 [node name="td_world_4" type="Node2D"]
 
@@ -86,4 +91,19 @@ contents = {
 "coin3": 10
 }
 
+[node name="level_transfer2" type="Area2D" parent="."]
+script = ExtResource("8_36kap")
+next_level = "shop"
+
+[node name="Sprite2D" type="Sprite2D" parent="level_transfer2"]
+visible = false
+position = Vector2(-14, -26)
+scale = Vector2(28, 52)
+texture = SubResource("PlaceholderTexture2D_rafgd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="level_transfer2"]
+position = Vector2(-101, 465)
+shape = SubResource("RectangleShape2D_k381s")
+
 [connection signal="body_entered" from="level_transfer" to="level_transfer" method="_on_body_entered"]
+[connection signal="body_entered" from="level_transfer2" to="level_transfer2" method="_on_body_entered"]
