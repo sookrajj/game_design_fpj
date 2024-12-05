@@ -64,6 +64,7 @@ var collectstd = {
 	"td_enemy25" : false,
 	"td_enemy26" : false,
 }
+var npcinrange = false
 
 func set_player(body):
 	data = body
