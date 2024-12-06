@@ -5,6 +5,7 @@ var offset = Vector2.ZERO
 
 func _process(delta: float) -> void:
 	if dragging:
+		print("hi")
 		self.global_position = get_global_mouse_position() - offset
 
 

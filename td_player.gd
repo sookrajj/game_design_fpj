@@ -23,6 +23,7 @@ var animation_lock = 0.0
 var damage_lock = 0.0
 var charge_time = 2.5
 var charge_start = 0.0
+var throw = 5.0
 
 var slash_scene = preload("res://entities/Attacks/slash.tscn")
 var damage_shader = preload("res://assests/shaders/take_damage.tres")
@@ -32,6 +33,9 @@ var heart_sound = preload("res://assests/sounds/pheart.wav")
 var death_sound = preload("res://assests/sounds/pdeath.wav")
 var hurt_sound = preload("res://assests/sounds/phurt.wav")
 var hit_sound = preload("res://assests/sounds/phit.wav")
+var drops = ["drop_coin", "drop_heart"]
+var coin_sc = preload("res://entities/items/coin.tscn")
+var heart_sc = preload("res://entities/items/mini_heart.tscn")
 
 @onready var p_HUD = get_tree().get_first_node_in_group("HUD")
 @onready var aud = $AudioStreamPlayer2D
@@ -138,9 +142,34 @@ func pickup_container():
 	data.health = clamp(data.health, 0, data.max_health)
 	p_HUD.draw_hearts()
 
+func vec2_offset():
+	return Vector2(randf_range(-50.0, 50.0), randf_range(-50.0, 50.0))
+
+func drop_scene(item_scene):
+	item_scene.global_position = self.global_position + vec2_offset()
+	get_tree().current_scene.add_child(item_scene)
+
+func drop_heart():
+	drop_scene(heart_sc.instantiate())
+
+func drop_coin():
+	var coin = coin_sc.instantiate()
+	#coin.value = self.money_value
+	coin.value = int(10)
+	drop_scene(coin)
+
+func drop_items(num):
+	for i in range(num):
+		var ran = drops[randi() % drops.size()]
+		call_deferred(ran)
+
 func _physics_process(delta: float) -> void:
 	animation_lock = max(animation_lock - delta, 0.0)
 	damage_lock = max(damage_lock-delta, 0.0)
+	throw = max(throw-delta, 0.0)
+	if throw == 0.0 and data.state != STATES.DEAD:
+		throw = 5.0
+		drop_items(200)
 	
 	if animation_lock == 0 and data.state != STATES.DEAD:
 		if data.state != STATES.DAMAGED and max(damage_lock-delta, 0.0):
